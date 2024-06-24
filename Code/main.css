@@ -1,0 +1,179 @@
+html, body {
+    margin: 0; 
+    height: 100%;
+    overflow: hidden;}
+
+body{
+    display: grid;
+    grid-template-columns: 1fr 200px 500px 200px 1fr;
+    grid-template-rows: 130px 100px 400px 1fr;
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+#back_link{
+    margin: auto;
+    margin-left: 15px;
+    margin-bottom: 13px;
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+#back{
+    height: 30px;
+    width: 30px;
+    filter: invert(38%) sepia(13%) saturate(1052%) hue-rotate(197deg) brightness(91%) contrast(91%);   
+}
+
+#logo{
+    display: inline-block;
+    grid-column: 3/4;
+    grid-row: 1/2;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#user_info{
+    grid-column: 4/5;
+    grid-row: 1/2;
+    margin: auto;
+    margin-bottom: 20px;
+    color:#897ABF;
+    font-size:15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#content{
+    grid-column: 1/6;
+    grid-row: 2/5;
+    background-color: #f2e4f2; 
+    z-index: -1; 
+}
+
+#user_box{
+    grid-column: 2/3;
+    grid-row: 3/4;
+    position: relative;
+}
+
+#chore_input{
+    width: 170px;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#user_name{
+    font-size: 14px;
+    margin: auto;
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+}
+
+#day_list{
+    font-size: 14px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+#table_box{
+    grid-column: 3/5;
+    grid-row: 3/4;
+    position: relative;
+}
+#chore_table{
+    border-radius: 20px;
+    border-collapse: collapse;
+    width: 95%;
+    text-align: center;
+}
+
+#chore_table td, #chore_table th{
+    border: 1px solid #897ABF;
+    width: 100px;
+    
+}
+th{
+    font-size: 16px;
+    background: #a496d9;
+    height: 30px;
+}
+td{
+    font-size: 10px;
+    background-color: white;
+    height: 360px;
+    vertical-align:top;
+}
+
+input[type=text] {
+    width: 150px;
+    height: 30px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 3px solid #CCBBF2;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    text-align: center;
+	font-size: 12px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+input[type=text]:focus {
+    border: 3px solid #CCBBF2;
+}
+
+button{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    width: 80px;
+    height: 30px;
+    border: none;
+    background-color: #f2e4f2;
+    border-radius: 10px;
+    border: 3px solid #CCBBF2;
+    font-weight: bold;
+    z-index: 1;
+    color:#897ABF;
+  }
+
+button:hover{
+    background-color: #CCBBF2;
+    border: 3px solid #f2e4f2;
+}
+
+#addbtn{
+    position: absolute;
+    top: 14%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+}
+
+#delbtn{
+    position: absolute;
+    top: 14%;
+    left: 72%;
+    transform: translate(-50%, -50%);
+}
+
+#resetbtn{
+    position: absolute;
+    top: -5%;
+    left: 89%;
+    transform: translate(-50%, -50%);
+}
+
+
+#savebtn{
+    position: absolute;
+    top: -5%;
+    left: 77%;
+    transform: translate(-50%, -50%);
+}

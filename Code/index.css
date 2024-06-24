@@ -1,0 +1,96 @@
+html, body {
+    margin: 0; 
+    height: 100%;
+    overflow: hidden;}
+
+
+body{
+    background-color: #DEC9F2;  
+    display: grid;
+    grid-template-columns: 1fr 150px 300px 150px 150px 1fr;
+    grid-template-rows: 1fr 300px 45px 1fr;
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+
+#title{
+    grid-column: 2/6;
+    grid-row: 2/3;
+    background-color: #f2e4f2;
+    border: 5px double #CCBBF2;
+    border-radius: 20px;
+    height: 250px;
+    width: 750px;
+    display: grid;
+    grid-template-columns: 1fr 500px 1fr;
+    grid-template-rows: 1fr 30px 130px 1fr;
+}
+
+
+#title_des{margin-top: 30px;
+    color:#A496D9;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    margin-left: 35px;
+    font-size: 20px;
+}
+
+
+#title_name{
+    width: 500px;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    margin-left: 10px;
+}
+
+
+
+input[type=text] {
+    grid-column: 3/4;
+    grid-row: 3/4;
+	width: 300px;
+	height: 45px;
+    padding: 12px 20px;
+    margin-left: 30px;
+    box-sizing: border-box;
+    border: 3px solid #CCBBF2;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    text-align: center;
+	font-size: 16px;
+    border-radius: 10px;
+    background-color: #f2e4f2;
+  }
+
+  input[type=text]:focus {
+    border: 3px solid #CCBBF2;
+  }
+
+  button{
+    grid-column: 4/5;
+    grid-row: 3/4;
+    margin-left: 40px;
+    width: 80px;
+    height: 45px;
+    border: none;
+    background-color: #f2e4f2;
+    border-radius: 10px;
+    border: 3px solid #CCBBF2;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  button:hover{
+    background-color: #CCBBF2;
+    border: 3px solid #f2e4f2;
+  }
+
+  a{
+    text-decoration: none;
+    color: #897ABF;
+    width: 80px;
+    height: 45px;
+  }
+  

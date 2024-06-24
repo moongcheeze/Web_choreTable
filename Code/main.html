@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChoreTable</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="main.css" />
+
+    <script>
+      var mon = [];
+      var tue = [];
+      var wen = [];
+      var thu = [];
+      var fri = [];
+      var sat = [];
+      var sun = [];
+
+
+      var m = [];
+
+      function userInfo() {
+        document.getElementById("user_info").innerHTML =
+          localStorage.getItem("username").toUpperCase() + " HOUSE";
+      }
+      var members = [];
+
+      function loadUser() {
+        var m = localStorage.getItem("members");
+        if (m == null) {
+          members = [];
+          document.getElementById("user_name").innerHTML =
+            "<div>아무도<br> 없어요</div>";
+        } else {
+          members = JSON.parse(m);
+          displayMember();
+        }
+      }
+      function displayMember() {
+        document.getElementById("user_name").innerHTML = "";
+        for (var i = 0; i < members.length; i++) {
+          document.getElementById("user_name").innerHTML +=
+            "<input type='checkbox' name='usercheck' value='" +
+            members[i].name +
+            "' id='" +
+            members[i].name +
+            "'/> <label for='" +
+            members[i].name +
+            "' style='color:" +
+            members[i].color +
+            "'>" +
+            members[i].name +
+            "</label><br>"
+            ;
+        }
+      }
+
+      function loadTable() {
+        var m = localStorage.getItem("mon");
+        if (m == null) {
+          mon = [];
+        } else {
+          mon = JSON.parse(m);
+        }
+        var tu = localStorage.getItem("tue");
+        if (tu == null) {
+          tue = [];
+        } else {
+          tue = JSON.parse(tu);
+        }
+        var w = localStorage.getItem("wen");
+        if (w == null) {
+          wen = [];
+        } else {
+          wen = JSON.parse(w);
+        }
+        var th = localStorage.getItem("thu");
+        if (th == null) {
+          thu = [];
+        } else {
+          thu = JSON.parse(th);
+        }
+        var f = localStorage.getItem("fri");
+        if (f == null) {
+          fri = [];
+        } else {
+          fri = JSON.parse(f);
+        }
+        var sa = localStorage.getItem("sat");
+        if (sa == null) {
+          sat = [];
+        } else {
+          sat = JSON.parse(sa);
+        }
+        var su = localStorage.getItem("sun");
+        if (su == null) {
+          sun = [];
+        } else {
+          sun = JSON.parse(su);
+        }
+        displayTable();
+      }
+      function displayTable(){
+        document.getElementById("mon").innerHTML = "";
+        document.getElementById("tue").innerHTML = "";
+        document.getElementById("wen").innerHTML = "";
+        document.getElementById("thu").innerHTML = "";
+        document.getElementById("fri").innerHTML = "";
+        document.getElementById("sat").innerHTML = "";
+        document.getElementById("sun").innerHTML = "";
+
+        for(var k=0; k<mon.length; k++){
+          document.getElementById('mon').innerHTML += "<br/>"+mon[k].chore+"<br/>"
+          + "<span>(</span>";
+        for(var i=0; i<mon[k].mem.length;i++){
+          var m = mon[k].mem;
+          var color;
+          for(var j=0; j<members.length; j++){
+            if(members[j].name == m[i]){
+              color = members[j].color;
+              break;
+            }
+          }
+          if(i==m.length-1){
+            document.getElementById('mon').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span>";
+            document.getElementById('mon').innerHTML += "<span>)</span></br>";
+          }
+          else{
+            document.getElementById('mon').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span><span>,</span>";
+          }
+        }
+      }
+      for(var k=0; k<tue.length; k++){
+          document.getElementById('tue').innerHTML += "<br/>"+tue[k].chore+"<br/>"
+          + "<span>(</span>";
+        for(var i=0; i<tue[k].mem.length;i++){
+          var m = tue[k].mem;
+          var color;
+          for(var j=0; j<members.length; j++){
+            if(members[j].name == m[i]){
+              color = members[j].color;
+              break;
+            }
+          }
+          if(i==m.length-1){
+            document.getElementById('tue').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span>";
+            document.getElementById('tue').innerHTML += "<span>)</span></br>";
+          }
+          else{
+            document.getElementById('tue').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span><span>,</span>";
+          }
+        }
+      }
+
+      for(var k=0; k<wen.length; k++){
+          document.getElementById('wen').innerHTML += "<br/>"+wen[k].chore+"<br/>"
+          + "<span>(</span>";
+        for(var i=0; i<wen[k].mem.length;i++){
+          var m = wen[k].mem;
+          var color;
+          for(var j=0; j<members.length; j++){
+            if(members[j].name == m[i]){
+              color = members[j].color;
+              break;
+            }
+          }
+          if(i==m.length-1){
+            document.getElementById('wen').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span>";
+            document.getElementById('wen').innerHTML += "<span>)</span></br>";
+          }
+          else{
+            document.getElementById('wen').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span><span>,</span>";
+          }
+        }
+      }
+
+      for(var k=0; k<thu.length; k++){
+          document.getElementById('thu').innerHTML += "<br/>"+thu[k].chore+"<br/>"
+          + "<span>(</span>";
+        for(var i=0; i<thu[k].mem.length;i++){
+          var m = thu[k].mem;
+          var color;
+          for(var j=0; j<members.length; j++){
+            if(members[j].name == m[i]){
+              color = members[j].color;
+              break;
+            }
+          }
+          if(i==m.length-1){
+            document.getElementById('thu').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span>";
+            document.getElementById('thu').innerHTML += "<span>)</span></br>";
+          }
+          else{
+            document.getElementById('thu').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span><span>,</span>";
+          }
+        }
+      }
+
+      for(var k=0; k<fri.length; k++){
+          document.getElementById('fri').innerHTML += "<br/>"+fri[k].chore+"<br/>"
+          + "<span>(</span>";
+        for(var i=0; i<fri[k].mem.length;i++){
+          var m = fri[k].mem;
+          var color;
+          for(var j=0; j<members.length; j++){
+            if(members[j].name == m[i]){
+              color = members[j].color;
+              break;
+            }
+          }
+          if(i==m.length-1){
+            document.getElementById('fri').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span>";
+            document.getElementById('fri').innerHTML += "<span>)</span></br>";
+          }
+          else{
+            document.getElementById('fri').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span><span>,</span>";
+          }
+        }
+      }
+
+      for(var k=0; k<sat.length; k++){
+          document.getElementById('sat').innerHTML += "<br/>"+sat[k].chore+"<br/>"
+          + "<span>(</span>";
+        for(var i=0; i<sat[k].mem.length;i++){
+          var m = sat[k].mem;
+          var color;
+          for(var j=0; j<members.length; j++){
+            if(members[j].name == m[i]){
+              color = members[j].color;
+              break;
+            }
+          }
+          if(i==m.length-1){
+            document.getElementById('sat').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span>";
+            document.getElementById('sat').innerHTML += "<span>)</span></br>";
+          }
+          else{
+            document.getElementById('sat').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span><span>,</span>";
+          }
+        }
+      }
+
+      for(var k=0; k<sun.length; k++){
+          document.getElementById('sun').innerHTML += "<br/>"+sun[k].chore+"<br/>"
+          + "<span>(</span>";
+        for(var i=0; i<sun[k].mem.length;i++){
+          var m = sun[k].mem;
+          var color;
+          for(var j=0; j<members.length; j++){
+            if(members[j].name == m[i]){
+              color = members[j].color;
+              break;
+            }
+          }
+          if(i==m.length-1){
+            document.getElementById('sun').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span>";
+            document.getElementById('sun').innerHTML += "<span>)</span></br>";
+          }
+          else{
+            document.getElementById('sun').innerHTML += "<span style='color:"+
+            color+"'>"+m[i]+"</span><span>,</span>";
+          }
+        }
+      }
+    }
+
+      function addChore(){
+        m = []
+        var c = document.getElementById("chore_input").value;
+
+        for(var i = 0; i<members.length; i++){
+          if(document.getElementById(members[i].name).checked == true){
+            m.push(members[i].name);
+          }
+        }
+
+        if(m.length == 0){
+          alert("1인 이상의 멤버를 선택해주세요");
+        }
+
+        if(document.getElementById("m").checked == true){
+          mon.push({chore:c,mem:m});
+        }
+        if(document.getElementById("tu").checked == true){
+          tue.push({chore:c,mem:m});
+        }
+        if(document.getElementById("w").checked == true){
+          wen.push({chore:c,mem:m});
+        }
+        if(document.getElementById("th").checked == true){
+          thu.push({chore:c,mem:m});
+        }
+        if(document.getElementById("f").checked == true){
+          fri.push({chore:c,mem:m});
+        }
+        if(document.getElementById("sa").checked == true){
+          sat.push({chore:c,mem:m});
+        }
+        if(document.getElementById("su").checked == true){
+          sun.push({chore:c,mem:m});
+        }
+
+        displayTable();
+
+      }
+      function deleteChore(){
+        var d = document.getElementById("chore_input").value;
+
+        if(document.getElementById("m").checked == true){
+          for(var i=0; i<mon.length;i++){
+            if(mon[i].chore == d){
+              mon.splice(i,1);
+            }
+          }
+        }
+        if(document.getElementById("tu").checked == true){
+          for(var i=0; i<tue.length;i++){
+            if(tue[i].chore == d){
+              tue.splice(i,1);
+            }
+          }
+        }
+        if(document.getElementById("w").checked == true){
+          for(var i=0; i<wen.length;i++){
+            if(wen[i].chore == d){
+              wen.splice(i,1);
+            }
+          }
+        }
+        if(document.getElementById("th").checked == true){
+          for(var i=0; i<thu.length;i++){
+            if(thu[i].chore == d){
+              thu.splice(i,1);
+            }
+          }
+        }
+        if(document.getElementById("f").checked == true){
+          for(var i=0; i<fri.length;i++){
+            if(fri[i].chore == d){
+              fri.splice(i,1);
+            }
+          }
+        }
+        if(document.getElementById("sa").checked == true){
+          for(var i=0; i<sat.length;i++){
+            if(sat[i].chore == d){
+              sat.splice(i,1);
+            }
+          }
+        }
+        if(document.getElementById("su").checked == true){
+          for(var i=0; i<sun.length;i++){
+            if(sun[i].chore == d){
+              sun.splice(i,1);
+            }
+          }
+        }
+
+        displayTable();
+
+
+      }
+
+      function saveChore(){
+        localStorage.setItem("mon",JSON.stringify(mon));
+        localStorage.setItem("tue",JSON.stringify(tue));
+        localStorage.setItem("wen",JSON.stringify(wen));
+        localStorage.setItem("thu",JSON.stringify(thu));
+        localStorage.setItem("fri",JSON.stringify(fri));
+        localStorage.setItem("sat",JSON.stringify(sat));
+        localStorage.setItem("sun",JSON.stringify(sun));
+      }
+
+      function resetChore(){
+        mon = [];
+        tue = [];
+        wen = [];
+        thu = [];
+        fri = [];
+        sat = [];
+        sun = [];
+        saveChore();
+        displayTable();
+      }
+      
+    </script>
+  </head>
+  <body onload="userInfo(),loadUser(),loadTable()">
+    <a id="back_link" href="index.html"
+    ><img id="back" src="backwards.svg" alt=""
+  /></a>
+    <img id="logo" src="logo.svg" alt="" />
+    <a id="user_info" href="user.html"></a>
+    <div id="user_box">
+      <input
+        type="text"
+        placeholder="할 일을 입력하세요"
+        id="chore_input"
+        maxlength="15"
+        minlength="1"
+      />
+      <button id="addbtn" onclick="addChore()">add</button>
+      <button id="delbtn" onclick="deleteChore()">delete</button>
+      <form id="user_name"></form>
+      <div id="day_list">
+        <input type="checkbox" value="mon" id="m" />
+        <label for="m">월</label><br />
+        <input type="checkbox" value="tue" id="tu" />
+        <label for="tu">화</label><br />
+        <input type="checkbox" value="wed" id="w" />
+        <label for="w">수</label><br />
+        <input type="checkbox" value="thu" id="th" />
+        <label for="th">목</label><br />
+        <input type="checkbox" value="fri" id="f" />
+        <label for="f">금</label><br />
+        <input type="checkbox" value="sat" id="sa" />
+        <label for="sa">토</label><br />
+        <input type="checkbox" value="sun" id="su" />
+        <label for="su">일</label><br />
+      </div>
+    </div>
+    <div id="table_box">
+      <button id="savebtn" onclick="saveChore()">save</button>
+      <button id="resetbtn" onclick="resetChore()">reset</button>
+      <table id="chore_table">
+        <tr>
+          <th>월</th>
+          <th>화</th>
+          <th>수</th>
+          <th>목</th>
+          <th>금</th>
+          <th>토</th>
+          <th>일</th>
+        </tr>
+        <tr>
+          <td id="mon"></td>
+          <td id="tue"></td> 
+          <td id="wen"></td>
+          <td id="thu"></td>
+          <td id="fri"></td>
+          <td id="sat"></td>
+          <td id="sun"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="content"></div>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChoreTable</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="user.css" />
+    <script>
+      function userInfo() {
+        document.getElementById("user_title").innerHTML =
+          localStorage.getItem("username").toUpperCase() + " HOUSE";
+      }
+
+      members = [];
+
+      function loadUser() {
+        var m = localStorage.getItem("members");
+        if (m == null) {
+          members = [];
+          document.getElementById("member").innerHTML = "아무도 없어요";
+        } else {
+          members = JSON.parse(m);
+          displayMember();
+        }
+      }
+      function addMember() {
+        var n = document.getElementById("user_name").value;
+        var c = document.getElementById("mem_color").value;
+        var flag = 0;
+        for (var i = 0; i < members.length; i++) {
+          if (members[i].name == n) {
+            flag = 1;
+            break;
+          }
+        }
+        if (flag == 1) {
+          alert("중복된 이름입니다. 다른 이름을 사용해주세요.");
+        } else if (n == "") {
+          alert("올바른 이름을 입력해주세요.");
+        } else {
+          members.push({ name: n, color: c });
+          localStorage.setItem("members", JSON.stringify(members));
+        }
+        displayMember();
+      }
+
+      function displayMember() {
+        document.getElementById("member").innerHTML = "";
+        for (var i = 0; i < members.length; i++) {
+          document.getElementById("member").innerHTML +=
+            "<span style='color:" +
+            members[i].color +
+            "'>" +
+            members[i].name +
+            "  " +
+            "</span>";
+        }
+      }
+
+      function deleteMember() {
+        var d = document.getElementById("user_name").value;
+        for (var i = 0; i < members.length; i++) {
+          if (members[i].name == d) {
+            members.splice(i, 1);
+            break;
+          }
+        }
+        localStorage.setItem("members", JSON.stringify(members));
+        displayMember();
+      }
+    </script>
+  </head>
+  <body onload="userInfo(), loadUser()">
+    <div id="top"></div>
+    <div id="user_title"></div>
+    <a id="back_link" href="main.html"
+      ><img id="back" src="backwards.svg" alt=""
+    /></a>
+    <div id="member"></div>
+    <div id="form">
+      <div class="form_div">name</div>
+      <input
+        type="text"
+        placeholder="이름을 입력하세요"
+        id="user_name"
+        maxlength="10"
+        minlength="1"
+        style="margin:auto"
+      />
+      <div class="form_div">color</div>
+      <input type="color" id="mem_color" style="margin:auto"/>
+      <div class="form_div">
+        <button onclick="addMember()">add member</button>
+        <button onclick="deleteMember()">delete member</button>
+      </div>
+    </div>
+  </body>
+</html>

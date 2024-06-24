@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChoreTable</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css" />
+    <script>
+      function saveUserName() {
+        user = document.getElementById("user").value;
+        localStorage.setItem("username", user);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="title">
+      <div id="title_des">가사분담 테이블 웹페이지</div>
+      <img id="title_name" src="logo.svg" />
+    </div>
+
+    <input id="user" type="text" placeholder="하우스 이름을 입력하세요" />
+    <button onclick="saveUserName()"><a href="main.html">START</a></button>
+  </body>
+</html>
