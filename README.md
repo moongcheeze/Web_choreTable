@@ -27,6 +27,6 @@
   <li>중복되는 이름은 사용할 수 없습니다.</li>
   <li>삭제하고 싶은 이름을 입력한 후, 'delete member' 버튼을 누르면 멤버를 삭제합니다.</li>
 </ul>
-<img width="500" alt="멤버관리" src="https://github.com/yymoongchi/Web_choreTable/assets/75613475/3e9f8899-04e5-4a82-b7d4-f070690ed8b2">
+<img width="500" alt="스크린샷 2024-06-24 오후 7 43 35" src="https://github.com/yymoongchi/Web_choreTable/assets/75613475/42a1849c-9226-4ca5-8670-51fdda65818d">
 <br/>
 <br/>
